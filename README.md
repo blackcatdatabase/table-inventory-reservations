@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **inventory_reservations** (repo: $slug).
+> Schema package for table **inventory_reservations** (repo: `inventory-reservations`).
 
 ## Files
 ```
@@ -45,7 +45,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | book_id | BIGINT UNSIGNED | NO | — |  |
 | quantity | INT UNSIGNED | NO | — |  |
 | reserved_until | DATETIME(6) | NO | — |  |
-| status | ENUM(''pending'',''confirmed'',''expired'',''cancelled'') | NO | '' |  |
+| status | ENUM('pending','confirmed','expired','cancelled') | NO | '' |  |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
 
 ## Relationships
@@ -54,13 +54,13 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   INVENTORY_RESERVATIONS {
-    BIGINT id PK
-    BIGINT order_id
-    BIGINT book_id
+    INT id PK
+    INT order_id
+    INT book_id
     INT quantity
-    DATETIME(6) reserved_until
-    ENUM(''pending'',''confirmed'',''expired'',''cancelled'') status
-    DATETIME(6) created_at
+    DATETIME reserved_until
+    ENUM status
+    DATETIME created_at
   }
   INVENTORY_RESERVATIONS }o--|| BOOKS : "book_id"
 ```
