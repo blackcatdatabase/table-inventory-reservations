@@ -62,7 +62,7 @@ erDiagram
     ENUM(''pending'',''confirmed'',''expired'',''cancelled'') status
     DATETIME(6) created_at
   }
-  INVENTORY_RESERVATIONS }o--|| BOOKS : (book_id)
+  INVENTORY_RESERVATIONS }o--|| BOOKS : "book_id"
 ```
 
 ## Indexes
