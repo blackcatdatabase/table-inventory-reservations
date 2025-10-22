@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS inventory_reservations (
   book_id BIGINT UNSIGNED NOT NULL,
   quantity INT UNSIGNED NOT NULL,
   reserved_until DATETIME(6) NOT NULL,
-  status ENUM(''pending'',''confirmed'',''expired'',''cancelled'') NOT NULL DEFAULT ''pending'',
+  status ENUM('pending','confirmed','expired','cancelled') NOT NULL DEFAULT 'pending',
   created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   INDEX idx_res_book (book_id),
   INDEX idx_res_order (order_id),

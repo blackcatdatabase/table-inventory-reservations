@@ -11,5 +11,5 @@ Temporary stock reservations tied to orders.
 | book_id | BIGINT UNSIGNED | NO | — | Book (FK books.id). |  |
 | quantity | INT UNSIGNED | NO | — | Reserved quantity (> 0). |  |
 | reserved_until | DATETIME(6) | NO | — | Expiration timestamp (UTC). |  |
-| status | ENUM('pending','confirmed','expired','cancelled') | NO | ''pending'' | Reservation state. | enum: pending, confirmed, expired, cancelled |
+| status | ENUM('pending','confirmed','expired','cancelled') | NO | 'pending' | Reservation state. | enum: pending, confirmed, expired, cancelled |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |

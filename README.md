@@ -47,7 +47,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | book_id | BIGINT UNSIGNED | NO | — |  |
 | quantity | INT UNSIGNED | NO | — |  |
 | reserved_until | DATETIME(6) | NO | — |  |
-| status | ENUM('pending','confirmed','expired','cancelled') | NO | '' |  |
+| status | ENUM('pending','confirmed','expired','cancelled') | NO | 'pending' |  |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
 
 ## Relationships
