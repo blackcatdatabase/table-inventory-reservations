@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\InventoryReservations\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\InventoryReservations\Dto\InventoryReservationDto;
 use BlackCat\Database\Packages\InventoryReservations\Mapper\InventoryReservationDtoMapper;
 use BlackCat\Database\Packages\InventoryReservations\Repository\InventoryReservationRepository;
