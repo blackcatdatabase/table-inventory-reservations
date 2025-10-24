@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\InventoryReservations;
 /**
  * Bezpečný builder WHERE/ORDER/LIMIT.
  * - whitelist filtrů: [ 'id', 'order_id', 'book_id', 'quantity', 'reserved_until', 'status', 'created_at' ]
- * - whitelist pro LIKE hledání: []
+ * - whitelist pro LIKE hledání: [ 'status' ]
  */
 final class Criteria {
     /** @var array<string,mixed> */
@@ -61,7 +61,7 @@ final class Criteria {
 
         // fulltext/LIKE (přes whitelist)
         if ($this->search !== null) {
-            $searchCols = [];
+            $searchCols = [ 'status' ];
             $likeParts = [];
             foreach ($searchCols as $i=>$c) {
                 if ($c === '') continue;

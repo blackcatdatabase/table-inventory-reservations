@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\InventoryReservations;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'inventory_reservations'; }
-    public static function contractView(): string { return 'v_inventory_reservations_contract'; }
+    public static function contractView(): string { return 'vw_inventory_reservations'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'order_id', 'book_id', 'quantity', 'reserved_until', 'status', 'created_at' ]; }
     public static function pk(): string { return 'id'; }
