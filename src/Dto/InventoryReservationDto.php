@@ -5,7 +5,7 @@ namespace BlackCat\Database\Packages\InventoryReservations\Dto;
 
 /**
  * Jednoduché, neměnné DTO s veřejnými readonly vlastnostmi.
- * - Žádná logika; pouze nosič dat.
+ * - Bez logiky; pouze nosič dat.
  * - Silné typy drží kontrakt napříč vrstvami.
  */
 final class InventoryReservationDto {
@@ -16,12 +16,12 @@ final class InventoryReservationDto {
         public readonly int $quantity,
         public readonly \DateTimeImmutable $reservedUntil,
         public readonly string $status,
-        public readonly \DateTimeImmutable $createdAt
+        public readonly \DateTimeImmutable $createdAt,
+        public readonly int $version
     ) {}
 
-    /** Vhodné pro serializaci/logování (bez binárních/velkých blobů). */
+    /** Vhodné pro serializaci/logování (bez velkých blobů). */
     public function toArray(): array {
-        // get_object_vars funguje dobře s public readonly vlastnostmi
         return get_object_vars($this);
     }
 }

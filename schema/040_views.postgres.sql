@@ -1,7 +1,8 @@
--- Auto-generated from schema-views-postgres.psd1 (map@mtime:2025-10-24T09:45:40Z)
+-- Auto-generated from schema-views-postgres.psd1 (map@38d5403)
 -- engine: postgres
 -- table:  inventory_reservations
 -- Contract view for [inventory_reservations]
+-- Adds is_expired helper.
 CREATE OR REPLACE VIEW vw_inventory_reservations AS
 SELECT
   id,
@@ -9,6 +10,7 @@ SELECT
   book_id,
   quantity,
   reserved_until,
+  (now() > reserved_until) AS is_expired,
   status,
   created_at
 FROM inventory_reservations;

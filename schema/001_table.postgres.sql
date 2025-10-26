@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@mtime:2025-10-24T09:46:38Z)
+-- Auto-generated from schema-map-postgres.psd1 (map@38d5403)
 -- engine: postgres
 -- table:  inventory_reservations
 CREATE TABLE IF NOT EXISTS inventory_reservations (
@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS inventory_reservations (
   reserved_until TIMESTAMPTZ(6) NOT NULL,
   status TEXT NOT NULL DEFAULT 'pending',
   created_at TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  version INTEGER NOT NULL DEFAULT 0,
+  CONSTRAINT chk_reservations_version CHECK (version >= 0),
   CONSTRAINT chk_res_qty CHECK (quantity > 0),
   CONSTRAINT chk_res_status CHECK (status IN ('pending','confirmed','expired','cancelled'))
 );

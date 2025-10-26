@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-mysql.psd1 (map@mtime:2025-10-24T09:13:35Z)
+-- Auto-generated from schema-map-mysql.psd1 (map@38d5403)
 -- engine: mysql
 -- table:  inventory_reservations
 CREATE TABLE IF NOT EXISTS inventory_reservations (
@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS inventory_reservations (
   reserved_until DATETIME(6) NOT NULL,
   status ENUM('pending','confirmed','expired','cancelled') NOT NULL DEFAULT 'pending',
   created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  version INT UNSIGNED NOT NULL DEFAULT 0,
   INDEX idx_res_book (book_id),
   INDEX idx_res_order (order_id),
   INDEX idx_res_status_until (status, reserved_until),
