@@ -1,10 +1,11 @@
--- Auto-generated from schema-views-mysql.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
 -- engine: mysql
 -- table:  inventory_reservations
 -- Contract view for [inventory_reservations]
 -- Adds is_expired helper.
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_inventory_reservations AS
 SELECT
+  tenant_id,
   id,
   order_id,
   book_id,
