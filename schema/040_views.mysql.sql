@@ -5,6 +5,7 @@
 -- Adds is_expired helper.
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_inventory_reservations AS
 SELECT
+  tenant_id,
   id,
   order_id,
   book_id,

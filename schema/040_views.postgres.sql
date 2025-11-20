@@ -6,6 +6,7 @@
 CREATE OR REPLACE VIEW vw_inventory_reservations AS
 SELECT
   id,
+  tenant_id,
   order_id,
   book_id,
   quantity,
