@@ -100,7 +100,7 @@ SQL;
         $hasView  = SchemaIntrospector::hasView($db, $d, $view);
 
         // Quick index/FK check â€“ generator injects names (case-sensitive per DB)
-        $expectedIdx = [ 'idx_inventory_reservations_order', 'idx_res_book', 'idx_res_book_status', 'idx_res_order', 'idx_res_status_until', 'idx_res_tenant_status_until' ];
+        $expectedIdx = [ 'idx_inventory_reservations_order', 'idx_res_book_status', 'idx_res_tenant_status_until' ];
         if ($d->isMysql()) {
             // Drop PG-only index naming patterns (e.g., GIN/GiST)
             $expectedIdx = array_values(array_filter(
@@ -133,7 +133,7 @@ SQL;
             'columns'     => Definitions::columns(),
             'version'     => $this->version(),
             'dialects'    => [ 'mysql', 'postgres' ],
-            'indexes'     => [ 'idx_inventory_reservations_order', 'idx_res_book', 'idx_res_book_status', 'idx_res_order', 'idx_res_status_until', 'idx_res_tenant_status_until' ],
+            'indexes'     => [ 'idx_inventory_reservations_order', 'idx_res_book_status', 'idx_res_tenant_status_until' ],
             'foreignKeys' => [ 'fk_res_book', 'fk_res_order', 'fk_res_tenant' ],
         ];
     }
