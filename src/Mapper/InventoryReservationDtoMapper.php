@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class InventoryReservationDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'tenant_id' => 'tenantId', 'order_id' => 'orderId', 'book_id' => 'bookId', 'reserved_until' => 'reservedUntil', 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'tenant_id' => 'tenantId', 'order_id' => 'orderId', 'book_id' => 'bookId', 'quantity' => 'quantity', 'reserved_until' => 'reservedUntil', 'status' => 'status', 'created_at' => 'createdAt', 'version' => 'version' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
@@ -39,13 +39,8 @@ final class InventoryReservationDtoMapper
 
     private static function tz(): DateTimeZone
     {
-        if (self::$tzObj instanceof DateTimeZone) {
-            return self::$tzObj;
-        }
-        try {
+        if (!(self::$tzObj instanceof DateTimeZone)) {
             self::$tzObj = new DateTimeZone(self::TZ);
-        } catch (\Throwable) {
-            self::$tzObj = new DateTimeZone('UTC');
         }
         return self::$tzObj;
     }
