@@ -6,12 +6,12 @@ Temporary stock reservations tied to orders.
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | book_id | BIGINT | NO |  | Book (FK books.id). |
-| created_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | order_id | BIGINT | YES |  | Order (FK orders.id), optional. |
-| quantity | INTEGER | NO |  | Reserved quantity (> 0). |
-| reserved_until | TIMESTAMPTZ(6) | NO |  | Expiration timestamp (UTC). |
-| status | TEXT | NO | pending | Reservation state. (enum: pending, confirmed, expired, cancelled) |
+| quantity | INT | NO |  | Reserved quantity (> 0). |
+| reserved_until | DATETIME(6) | NO |  | Expiration timestamp (UTC). |
+| status | ENUM('pending','confirmed','expired','cancelled') | NO | pending | Reservation state. (enum: pending, confirmed, expired, cancelled) |
 
 ## Engine Details
 
@@ -58,5 +58,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_inventory_reservations | mysql | algorithm=MERGE, security=INVOKER | [packages\inventory-reservations\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/inventory-reservations/schema/040_views.mysql.sql) |
-| vw_inventory_reservations | postgres |  | [packages\inventory-reservations\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/inventory-reservations/schema/040_views.postgres.sql) |
+| vw_inventory_reservations | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_inventory_reservations | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
