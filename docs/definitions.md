@@ -3,15 +3,17 @@
 Temporary stock reservations tied to orders.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| order_id | BIGINT | YES |  | Order (FK orders.id), optional. |
-| book_id | BIGINT | NO |  | Book (FK books.id). |
-| quantity | mysql: INT / postgres: INTEGER | NO |  | Reserved quantity (> 0). |
-| reserved_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO |  | Expiration timestamp (UTC). |
-| status | mysql: ENUM('pending','confirmed','expired','cancelled') / postgres: TEXT | NO | pending | Reservation state. (enum: pending, confirmed, expired, cancelled) |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |  |
+| order_id | BIGINT | YES |  | Order (FK orders.id), optional. |  |
+| book_id | BIGINT | NO |  | Book (FK books.id). |  |
+| quantity | mysql: INT / postgres: INTEGER | NO |  | Reserved quantity (> 0). |  |
+| reserved_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO |  | Expiration timestamp (UTC). |  |
+| status | mysql: ENUM('pending','confirmed','expired','cancelled') / postgres: TEXT | NO | pending | Reservation state. (enum: pending, confirmed, expired, cancelled) |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
+| version | mysql: INT / postgres: INTEGER | NO | 0 | Optimistic locking version counter. |  |
 
 ## Engine Details
 
