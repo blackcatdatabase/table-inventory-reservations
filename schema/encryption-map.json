@@ -1,0 +1,35 @@
+{
+  "tables": {
+    "inventory_reservations": {
+      "columns": {
+        "book_id": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "order_id": {
+          "strategy": "passthrough"
+        },
+        "quantity": {
+          "strategy": "passthrough"
+        },
+        "reserved_until": {
+          "strategy": "passthrough"
+        },
+        "status": {
+          "strategy": "passthrough"
+        },
+        "tenant_id": {
+          "strategy": "passthrough"
+        },
+        "version": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
